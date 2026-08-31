@@ -6,24 +6,55 @@
   <title>Servicios y Soluciones</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+<script>
+  // Cierra el menú hamburguesa al hacer clic en un enlace
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.querySelectorAll('.navbar nav a');
+
+  navLinks.forEach(link => {
+	    link.addEventListener('click', () => {
+	      menuToggle.checked = false;
+    });
+  });
+
+  // Opcional: Cerrar el menú al hacer clic fuera de él
+  document.addEventListener('click', (event) => {
+	    const navbar = document.querySelector('.navbar');
+    const isClickInside = navbar.contains(event.target);
+    if (!isClickInside && menuToggle.checked) {
+	      menuToggle.checked = false;
+    }
+  });
+</script>
+
 <body>
 
 <header class="navbar">
-  <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-  <label for="menu-toggle" class="menu-icon" aria-label="Abrir menú">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
-  <nav>
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#quienes-somos">Quiénes Somos</a></li>
-      <li><a href="#portafolio">Portafolio</a></li>
-      <li><a href="#experiencias">Experiencias</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
+  <div class="navbar-container">
+    <!-- Logo a la izquierda -->
+    <a href="#inicio" class="logo">
+      <img src="LOGO.png" alt="Logo de la empresa" />
+    </a>
+
+    <!-- Checkbox y botón hamburguesa -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <!-- Menú de navegación -->
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+        <li><a href="#portafolio">Portafolio</a></li>
+        <li><a href="#experiencias">Experiencias</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
   <section id="inicio" class="hero">

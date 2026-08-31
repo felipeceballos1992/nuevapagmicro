@@ -6,56 +6,35 @@
   <title>Servicios y Soluciones</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<script>
-  // Cierra el menú hamburguesa al hacer clic en un enlace
-  const menuToggle = document.getElementById('menu-toggle');
-  const navLinks = document.querySelectorAll('.navbar nav a');
-
-  navLinks.forEach(link => {
-	    link.addEventListener('click', () => {
-	      menuToggle.checked = false;
-    });
-  });
-
-  // Opcional: Cerrar el menú al hacer clic fuera de él
-  document.addEventListener('click', (event) => {
-	    const navbar = document.querySelector('.navbar');
-    const isClickInside = navbar.contains(event.target);
-    if (!isClickInside && menuToggle.checked) {
-	      menuToggle.checked = false;
-    }
-  });
-</script>
-
 <body>
 
-<header class="navbar">
-  <div class="navbar-container">
-    <!-- Logo a la izquierda -->
-    <a href="#inicio" class="logo">
-      <img src="LOGO.PNG" alt="Logo de la empresa" />
-    </a>
+  <header class="navbar">
+    <div class="navbar-container">
+      <!-- Logo a la izquierda (Ruta corregida exactamente como el archivo real) -->
+      <a href="#inicio" class="logo">
+        <img src="LOGO.PNG" alt="Logo de la empresa" />
+      </a>
 
-    <!-- Checkbox y botón hamburguesa -->
-    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon" aria-label="Abrir menú">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+      <!-- Checkbox y botón hamburguesa -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
-    <!-- Menú de navegación -->
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#quienes-somos">Quiénes Somos</a></li>
-        <li><a href="#portafolio">Portafolio</a></li>
-        <li><a href="#experiencias">Experiencias</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+      <!-- Menú de navegación -->
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#quienes-somos">Quiénes Somos</a></li>
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#experiencias">Experiencias</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <section id="inicio" class="hero">
     <h1>Listos para brindar el mejor servicio en el branch original</h1>
@@ -94,6 +73,27 @@
     <p>&copy; 2026 Todos los derechos reservados.</p>
     <p><a href="#politica-datos">Política de tratamiento de datos</a></p>
   </footer>
+
+  <!-- Script para cerrar el menú al hacer clic en las opciones -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+	      const menuToggle = document.getElementById('menu-toggle');
+      const navLinks = document.querySelectorAll('.navbar nav a');
+
+      navLinks.forEach(link => {
+	        link.addEventListener('click', () => {
+	          if (menuToggle) menuToggle.checked = false;
+        });
+      });
+
+      document.addEventListener('click', (event) => {
+	        const navbar = document.querySelector('.navbar');
+        if (navbar && !navbar.contains(event.target) && menuToggle && menuToggle.checked) {
+	          menuToggle.checked = false;
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
